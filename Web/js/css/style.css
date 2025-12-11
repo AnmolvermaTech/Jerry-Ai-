@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    background: #0d0f12;
+    font-family: "Poppins", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 450px;
+    height: 92vh;
+    background: #111418;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #2d3136;
+    box-shadow: 0 0 35px rgba(0,0,0,0.45);
+    overflow: hidden;
+}
+
+.header {
+    padding: 16px;
+    background: #15181d;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2d3136;
+    font-size: 18px;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+.bot-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+/* ✅ Gesture Status Badge */
+#gestureStatus {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.status-on { background: rgba(0, 255, 80, 0.25); color: #4bff8a; border: 1px solid #3cff78; }
+.status-off { background: rgba(255, 60, 60, 0.25); color: #ff6d6d; border: 1px solid #ff5f5f; }
+
+.messages {
+    flex: 1;
+    padding: 14px;
+    overflow-y: auto;
+}
+
+/* Message + Avatar Layout */
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.bubble {
+    padding: 12px 14px;
+    border-radius: 10px;
+    max-width: 80%;
+    line-height: 1.55;
+}
+
+.message.bot .bubble {
+    background: #1f242a;
+    border-left: 3px solid #5aa9ff;
+}
+
+.message.user {
+    flex-direction: row-reverse;
+}
+.message.user .bubble {
+    background: #1d232a;
+}
+
+/* Typing Indicator */
+.message.typing { display: flex; gap: 6px; }
+.dot { width: 8px; height: 8px; background: #5aa9ff; border-radius: 50%; animation: blink 1.4s infinite both; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0% { opacity: 0.2; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-5px); }
+    100% { opacity: 0.2; transform: translateY(0); }
+}
+
+/* Input Area */
+.input-area {
+    padding: 12px;
+    background: #15181d;
+    display: flex;
+    border-top: 1px solid #2d3136;
+}
+
+#userInput {
+    flex: 1;
+    padding: 12px;
+    background: #0e1116;
+    border: 1px solid #3a3f45;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+}
+
+#userInputButton {
+    margin-left: 8px;
+    padding: 12px 14px;
+    background: #5aa9ff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #0d0f12;
+    font-size: 18px;
+}
+
+/* Mic Button */
+.mic-btn {
+    width: 44px;
+    height: 44px;
+    background: #181c22;
+    border: 1px solid #2d3136;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    cursor: pointer;
+    position: relative;
+}
+.mic-active .mic-wave {
+    animation: micPulse 1.4s infinite ease-out;
+}
+.mic-wave {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(90,169,255,0.25);
+    transform: scale(0.9);
+    opacity: 0;
+}
+@keyframes micPulse {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    50% { transform: scale(1.5); opacity: 0.25; }
+    100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* Code Blocks */
+pre {
+    background: #1a1e24 !important;
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #333;
+    overflow-x: auto;
+}
+.hljs { background: transparent !important; }
+
+.fade-in { animation: fade 0.35s ease-out; }
+@keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.clear-btn {
+    background: #ff5f5f22;
+    border: 1px solid #ff6b6b;
+    color: #ff8b8b;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.clear-btn:hover {
+    background: #ff6b6b33;
+}
