@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jerry Assistant</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="chat-container">
+
+    <div class="header">
+        <div style="display:flex;align-items:center;gap:10px;">
+            <img src="images/bot.png" class="bot-icon">
+            <span class="bot-name">Jerry</span>
+        </div>
+
+        <span id="gestureStatus" class="status-off">🔴 Gesture OFF</span>
+        <button id="clearChatButton" class="clear-btn">🧹 Clear</button>
+    </div>
+
+    <div id="messages" class="messages"></div>
+
+    <div class="input-area">
+        <button id="micButton" class="mic-btn">
+            <div class="mic-wave"></div>
+            <div class="mic-icon">🎤</div>
+        </button>
+        <input type="text" id="userInput" placeholder="Type message…" autocomplete="off" />
+        <button id="userInputButton">➤</button>
+    </div>
+
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
